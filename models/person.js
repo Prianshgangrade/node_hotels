@@ -1,5 +1,4 @@
 const mongoose=require('mongoose');
-
 const personSchema =new mongoose.Schema({
     name:{
         type:String
@@ -11,7 +10,7 @@ const personSchema =new mongoose.Schema({
     },
     work:{
         type:String,
-        enmum:['chef','waiter','manager']//only one of these fields will be accepted
+        enmum:['chef','waiter','manager'],//only one of these fields will be accepted
         
     },
     mobile:{
@@ -31,7 +30,7 @@ const personSchema =new mongoose.Schema({
     
 });
 
-//create person model
+//create person mode
 
 const person=mongoose.model('person',personSchema);
 module.exports = person;
