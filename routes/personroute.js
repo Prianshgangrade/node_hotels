@@ -64,6 +64,20 @@ router.put('/:id',async(req,res)=>{
     }
     console.log('data updated');
     res.status(200).json(response);
+    }catch (err){
+        console.log(err);
+        res.status(500).json({error:'int server error'});
+    }
+});
+router.delete('/:id',async(req,res)=>{
+    try{
+        const personid=req.params.id;
+        const response= await person.findByIdAndDelete(personid);
+        if(!response){
+            return res.status(404).json({error:'person not found'});}
+        
+    console.log('data updated');
+    res.status(200).json({message:'person deletd succesfully',response});
     }catch(err){
         console.log(err);
         res.status(500).json({error:'int server error'});
